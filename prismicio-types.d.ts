@@ -151,6 +151,78 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type Page1DocumentDataSlicesSlice = TestSlice1Slice;
+
+/**
+ * Content for page1 documents
+ */
+interface Page1DocumentData {
+  /**
+   * text field in *page1*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page1.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *page1*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page1.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<Page1DocumentDataSlicesSlice> /**
+   * Meta Title field in *page1*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page1.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *page1*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page1.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *page1*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page1.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * page1 document from Prismic
+ *
+ * - **API ID**: `page1`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type Page1Document<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<Page1DocumentData>, "page1", Lang>;
+
 /**
  * Content for Settings documents
  */
@@ -251,6 +323,7 @@ export type TestpagetypeDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
+  | Page1Document
   | SettingsDocument
   | TestpagetypeDocument;
 
@@ -614,6 +687,61 @@ export type TestSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestSlice1 → Default → Primary*
+ */
+export interface TestSlice1SliceDefaultPrimary {
+  /**
+   * Title field in *TestSlice1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice1.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * text field in *TestSlice1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice1.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TestSlice1 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSlice1SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestSlice1SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestSlice1*
+ */
+type TestSlice1SliceVariation = TestSlice1SliceDefault;
+
+/**
+ * TestSlice1 Shared Slice
+ *
+ * - **API ID**: `test_slice1`
+ * - **Description**: TestSlice1
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSlice1Slice = prismic.SharedSlice<
+  "test_slice1",
+  TestSlice1SliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -814,6 +942,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      Page1Document,
+      Page1DocumentData,
+      Page1DocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       TestpagetypeDocument,
@@ -843,6 +974,10 @@ declare module "@prismicio/client" {
       TestSliceSliceDefaultPrimary,
       TestSliceSliceVariation,
       TestSliceSliceDefault,
+      TestSlice1Slice,
+      TestSlice1SliceDefaultPrimary,
+      TestSlice1SliceVariation,
+      TestSlice1SliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,

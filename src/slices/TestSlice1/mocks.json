@@ -5,8 +5,8 @@
 		"primary": {
 			"title": {
 				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "yellow"
+				"value": "express",
+				"type": "Text"
 			},
 			"text": {
 				"__TYPE__": "StructuredTextContent",
@@ -14,15 +14,10 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Velit pariatur ut non ea. Culpa cupidatat proident consequat eiusmod id aute qui est."
+							"text": "Nisi Lorem Lorem minim pariatur duis ea id sit esse eu nostrud commodo esse."
 						}
 					}
 				]
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Some button text"
 			}
 		},
 		"items": []
