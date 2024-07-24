@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TestSliceSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -182,7 +183,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type TestpagetypeDocumentDataSlicesSlice = never;
+type TestpagetypeDocumentDataSlicesSlice = TestSliceSlice;
 
 /**
  * Content for TestPageType documents
@@ -548,6 +549,71 @@ type QuoteSliceVariation = QuoteSliceDefault;
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
 
 /**
+ * Primary content in *TestSlice → Default → Primary*
+ */
+export interface TestSliceSliceDefaultPrimary {
+  /**
+   * title field in *TestSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * text field in *TestSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * button text field in *TestSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for TestSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestSlice*
+ */
+type TestSliceSliceVariation = TestSliceSliceDefault;
+
+/**
+ * TestSlice Shared Slice
+ *
+ * - **API ID**: `test_slice`
+ * - **Description**: TestSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceSlice = prismic.SharedSlice<
+  "test_slice",
+  TestSliceSliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -773,6 +839,10 @@ declare module "@prismicio/client" {
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
       QuoteSliceDefault,
+      TestSliceSlice,
+      TestSliceSliceDefaultPrimary,
+      TestSliceSliceVariation,
+      TestSliceSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,
