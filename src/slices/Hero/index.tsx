@@ -20,7 +20,7 @@ type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps) => {
   const backgroundImage = slice.primary.backgroundImage;
 
-  console.log(slice);
+  // console.log(slice);
 
   return (
     <section className="relative bg-slate-900 text-white">

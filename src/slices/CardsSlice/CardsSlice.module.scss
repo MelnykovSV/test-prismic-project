@@ -1,0 +1,24 @@
+.wrapper {
+  background-color: red;
+  height: 600px;
+  width: 100%;
+}
+
+.container {
+  background-color: green;
+  max-width: 1526px;
+  margin: 0 auto;
+
+  max-width: 100%;
+  padding: 32px 16px;
+
+  @media screen and (min-width: 1248px) {
+    max-width: 1248px;
+    padding: 48px 24px;
+  }
+
+  @media screen and (min-width: 1526px) {
+    padding: 64px 0;
+    max-width: 1526px;
+  }
+}
