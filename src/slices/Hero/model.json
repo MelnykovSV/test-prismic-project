@@ -42,6 +42,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "aaa": {
+          "type": "Link",
+          "config": {
+            "label": "aaa",
+            "select": "document"
+          }
         }
       },
       "items": {},

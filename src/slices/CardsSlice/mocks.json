@@ -1,0 +1,356 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "use",
+				"type": "Text"
+			},
+			"align_title": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "trace",
+				"type": "Text"
+			},
+			"align_subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Voluptate quis excepteur magna ea in dolor dolore qui ea laborum."
+						}
+					}
+				]
+			},
+			"align_text": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
+			},
+			"align_title_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"align_subtitle_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"align_text_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "none",
+				"type": "Select"
+			},
+			"background_image": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"columns": {
+				"__TYPE__": "FieldContent",
+				"value": "2",
+				"type": "Select"
+			},
+			"mobile_slider": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"align_cards": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"card_type": {
+				"__TYPE__": "FieldContent",
+				"value": "Card with title and text",
+				"type": "Select"
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "supper",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Consectetur occaecat consequat magna ea culpa id id aute nostrud pariatur sint. Qui anim proident elit sint proident fugiat mollit."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "grid32",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "imagine",
+				"type": "Text"
+			},
+			"align_title": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "island",
+				"type": "Text"
+			},
+			"align_subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo officia est dolore irure incididunt qui. Magna non eiusmod laborum pariatur commodo. Lorem ullamco culpa Lorem duis esse eu nulla non laborum velit aliquip cillum."
+						}
+					}
+				]
+			},
+			"align_text": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
+			},
+			"align_title_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"align_subtitle_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"align_text_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "none",
+				"type": "Select"
+			},
+			"background_image": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"mobile_slider": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"align_cards": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
+			},
+			"card_type": {
+				"__TYPE__": "FieldContent",
+				"value": "Card with title and text",
+				"type": "Select"
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "observe",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Irure do ea non excepteur culpa consequat in nisi Lorem officia anim nisi nisi quis id. Non laborum quis officia ad et cillum reprehenderit aute minim minim veniam veniam pariatur aute. Lorem sit incididunt dolore irure."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "limitedHeightMedium",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "feathers",
+				"type": "Text"
+			},
+			"align_title": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "dug",
+				"type": "Text"
+			},
+			"align_subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est sint ad proident reprehenderit ea tempor non amet proident magna mollit velit magna. Dolor et minim dolor nisi sint non eu excepteur ea nisi excepteur laborum. Incididunt consequat quis ex."
+						}
+					}
+				]
+			},
+			"align_text": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
+			},
+			"align_title_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Select"
+			},
+			"align_subtitle_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"align_text_mobile": {
+				"__TYPE__": "FieldContent",
+				"value": "left",
+				"type": "Select"
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "none",
+				"type": "Select"
+			},
+			"background_image": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"mobile_slider": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"align_cards": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Select"
+			},
+			"card_type": {
+				"__TYPE__": "FieldContent",
+				"value": "Card with title and text",
+				"type": "Select"
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "can",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Et enim amet et ut. Sit laborum sit ut qui tempor. Incididunt velit cillum consequat cupidatat officia proident sit cupidatat et elit laborum."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

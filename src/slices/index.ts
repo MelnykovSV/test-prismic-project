@@ -3,12 +3,12 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  cards_slice: dynamic(() => import("./CardsSlice")),
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),
   quote: dynamic(() => import("./Quote")),
   test_slice: dynamic(() => import("./TestSlice")),
-  test_slice1: dynamic(() => import("./TestSlice1")),
   text: dynamic(() => import("./Text")),
   text_with_image: dynamic(() => import("./TextWithImage")),
 };

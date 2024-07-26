@@ -34,6 +34,25 @@
             "label": "button text",
             "placeholder": ""
           }
+        },
+        "bbb": {
+          "type": "Group",
+          "config": {
+            "label": "bbb",
+            "repeat": true,
+            "fields": {
+              "ccc": {
+                "type": "Link",
+                "config": {
+                  "label": "ccc",
+                  "select": "document",
+                  "customtypes": [
+                    "test"
+                  ]
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

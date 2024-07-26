@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "single_type_test",
+  "label": "Single type test",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "id",
+          "placeholder": ""
+        }
+      },
+      "text": {
+        "type": "Text",
+        "config": {
+          "label": "text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

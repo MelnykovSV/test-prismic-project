@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CardsSliceSlice
   | TestSliceSlice
   | HeroSlice
   | QuoteSlice
@@ -151,7 +152,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type Page1DocumentDataSlicesSlice = TestSlice1Slice;
+type Page1DocumentDataSlicesSlice = never;
 
 /**
  * Content for page1 documents
@@ -255,6 +256,90 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Single type test documents
+ */
+interface SingleTypeTestDocumentData {
+  /**
+   * text field in *Single type test*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_type_test.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Single type test document from Prismic
+ *
+ * - **API ID**: `single_type_test`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SingleTypeTestDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SingleTypeTestDocumentData>,
+    "single_type_test",
+    Lang
+  >;
+
+type TestDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Test documents
+ */
+interface TestDocumentData {
+  /**
+   * Title field in *Test*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Test*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Test*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TestDocumentDataSlicesSlice>;
+}
+
+/**
+ * Test document from Prismic
+ *
+ * - **API ID**: `test`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TestDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TestDocumentData>, "test", Lang>;
+
 type TestpagetypeDocumentDataSlicesSlice = TestSliceSlice;
 
 /**
@@ -325,7 +410,681 @@ export type AllDocumentTypes =
   | PageDocument
   | Page1Document
   | SettingsDocument
+  | SingleTypeTestDocument
+  | TestDocument
   | TestpagetypeDocument;
+
+/**
+ * Item in *CardsSlice → Default → Primary → Cards*
+ */
+export interface CardsSliceSliceDefaultPrimaryCardsItem {
+  /**
+   * Title field in *CardsSlice → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.default.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *CardsSlice → Default → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.default.primary.cards[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Item in *CardsSlice → Grid 3/2 → Primary → Cards*
+ */
+export interface CardsSliceSliceGrid32PrimaryCardsItem {
+  /**
+   * Title field in *CardsSlice → Grid 3/2 → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.grid32.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *CardsSlice → Grid 3/2 → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.grid32.primary.cards[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Item in *CardsSlice → Limited Height Medium → Primary → Cards*
+ */
+export interface CardsSliceSliceLimitedHeightMediumPrimaryCardsItem {
+  /**
+   * Title field in *CardsSlice → Limited Height Medium → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *CardsSlice → Limited Height Medium → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.cards[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *CardsSlice → Default → Primary*
+ */
+export interface CardsSliceSliceDefaultPrimary {
+  /**
+   * Title field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Align Title field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.default.primary.align_title
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_title: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Align Title Mobile field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.default.primary.align_title_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_title_mobile: prismic.SelectField<
+    "center" | "left" | "right",
+    "filled"
+  >;
+
+  /**
+   * Subtitle field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Align Subtitle field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.default.primary.align_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_subtitle: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Align Subtitle Mobile field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.default.primary.align_subtitle_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_subtitle_mobile: prismic.SelectField<
+    "center" | "left" | "right",
+    "filled"
+  >;
+
+  /**
+   * Text field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Align Text field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: cards_slice.default.primary.align_text
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_text: prismic.SelectField<"left" | "center" | "right", "filled">;
+
+  /**
+   * Align Text Mobile field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: cards_slice.default.primary.align_text_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_text_mobile: prismic.SelectField<"left" | "center" | "right", "filled">;
+
+  /**
+   * Background Color field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: cards_slice.default.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"none" | "dark-blue", "filled">;
+
+  /**
+   * Background Image field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards_slice.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  background_image: prismic.BooleanField;
+
+  /**
+   * Columns field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 2
+   * - **API ID Path**: cards_slice.default.primary.columns
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  columns: prismic.SelectField<"2" | "3" | "4", "filled">;
+
+  /**
+   * Mobile Slider field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards_slice.default.primary.mobile_slider
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  mobile_slider: prismic.BooleanField;
+
+  /**
+   * Align Cards field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.default.primary.align_cards
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_cards: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Card Type field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Card with title and text
+   * - **API ID Path**: cards_slice.default.primary.card_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_type: prismic.SelectField<
+    "Card with title and text" | "Card with text",
+    "filled"
+  >;
+
+  /**
+   * Cards field in *CardsSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<Simplify<CardsSliceSliceDefaultPrimaryCardsItem>>;
+}
+
+/**
+ * Default variation for CardsSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardsSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *CardsSlice → Grid 3/2 → Primary*
+ */
+export interface CardsSliceSliceGrid32Primary {
+  /**
+   * Title field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.grid32.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Align Title field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.grid32.primary.align_title
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_title: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Align Title Mobile field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.grid32.primary.align_title_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_title_mobile: prismic.SelectField<
+    "center" | "left" | "right",
+    "filled"
+  >;
+
+  /**
+   * Subtitle field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.grid32.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Align Subtitle field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.grid32.primary.align_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_subtitle: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Align Subtitle Mobile field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.grid32.primary.align_subtitle_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_subtitle_mobile: prismic.SelectField<
+    "center" | "left" | "right",
+    "filled"
+  >;
+
+  /**
+   * Text field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.grid32.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Align Text field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: cards_slice.grid32.primary.align_text
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_text: prismic.SelectField<"left" | "center" | "right", "filled">;
+
+  /**
+   * Align Text Mobile field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: cards_slice.grid32.primary.align_text_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_text_mobile: prismic.SelectField<"left" | "center" | "right", "filled">;
+
+  /**
+   * Background Color field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: cards_slice.grid32.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"none" | "dark-blue", "filled">;
+
+  /**
+   * Background Image field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards_slice.grid32.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  background_image: prismic.BooleanField;
+
+  /**
+   * Mobile Slider field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards_slice.grid32.primary.mobile_slider
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  mobile_slider: prismic.BooleanField;
+
+  /**
+   * Align Cards field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.grid32.primary.align_cards
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_cards: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Card Type field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Card with title and text
+   * - **API ID Path**: cards_slice.grid32.primary.card_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_type: prismic.SelectField<
+    "Card with title and text" | "Card with text",
+    "filled"
+  >;
+
+  /**
+   * Cards field in *CardsSlice → Grid 3/2 → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.grid32.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<Simplify<CardsSliceSliceGrid32PrimaryCardsItem>>;
+}
+
+/**
+ * Grid 3/2 variation for CardsSlice Slice
+ *
+ * - **API ID**: `grid32`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceSliceGrid32 = prismic.SharedSliceVariation<
+  "grid32",
+  Simplify<CardsSliceSliceGrid32Primary>,
+  never
+>;
+
+/**
+ * Primary content in *CardsSlice → Limited Height Medium → Primary*
+ */
+export interface CardsSliceSliceLimitedHeightMediumPrimary {
+  /**
+   * Title field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Align Title field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_title
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_title: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Align Title Mobile field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_title_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_title_mobile: prismic.SelectField<
+    "center" | "left" | "right",
+    "filled"
+  >;
+
+  /**
+   * Subtitle field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Align Subtitle field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_subtitle: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Align Subtitle Mobile field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_subtitle_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_subtitle_mobile: prismic.SelectField<
+    "center" | "left" | "right",
+    "filled"
+  >;
+
+  /**
+   * Text field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Align Text field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_text
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_text: prismic.SelectField<"left" | "center" | "right", "filled">;
+
+  /**
+   * Align Text Mobile field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: left
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_text_mobile
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_text_mobile: prismic.SelectField<"left" | "center" | "right", "filled">;
+
+  /**
+   * Background Color field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"none" | "dark-blue", "filled">;
+
+  /**
+   * Background Image field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  background_image: prismic.BooleanField;
+
+  /**
+   * Mobile Slider field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.mobile_slider
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  mobile_slider: prismic.BooleanField;
+
+  /**
+   * Align Cards field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: center
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.align_cards
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align_cards: prismic.SelectField<"center" | "left" | "right", "filled">;
+
+  /**
+   * Card Type field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Card with title and text
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.card_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_type: prismic.SelectField<
+    "Card with title and text" | "Card with text",
+    "filled"
+  >;
+
+  /**
+   * Cards field in *CardsSlice → Limited Height Medium → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards_slice.limitedHeightMedium.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<
+    Simplify<CardsSliceSliceLimitedHeightMediumPrimaryCardsItem>
+  >;
+}
+
+/**
+ * Limited Height Medium variation for CardsSlice Slice
+ *
+ * - **API ID**: `limitedHeightMedium`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceSliceLimitedHeightMedium = prismic.SharedSliceVariation<
+  "limitedHeightMedium",
+  Simplify<CardsSliceSliceLimitedHeightMediumPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CardsSlice*
+ */
+type CardsSliceSliceVariation =
+  | CardsSliceSliceDefault
+  | CardsSliceSliceGrid32
+  | CardsSliceSliceLimitedHeightMedium;
+
+/**
+ * CardsSlice Shared Slice
+ *
+ * - **API ID**: `cards_slice`
+ * - **Description**: CardsSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceSlice = prismic.SharedSlice<
+  "cards_slice",
+  CardsSliceSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -370,6 +1129,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   backgroundImage: prismic.ImageField<never>;
+
+  /**
+   * aaa field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.aaa
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  aaa: prismic.ContentRelationshipField;
 }
 
 /**
@@ -622,6 +1391,21 @@ type QuoteSliceVariation = QuoteSliceDefault;
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
 
 /**
+ * Item in *TestSlice → Default → Primary → bbb*
+ */
+export interface TestSliceSliceDefaultPrimaryBbbItem {
+  /**
+   * ccc field in *TestSlice → Default → Primary → bbb*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice.default.primary.bbb[].ccc
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  ccc: prismic.ContentRelationshipField<"test">;
+}
+
+/**
  * Primary content in *TestSlice → Default → Primary*
  */
 export interface TestSliceSliceDefaultPrimary {
@@ -654,6 +1438,16 @@ export interface TestSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_text: prismic.KeyTextField;
+
+  /**
+   * bbb field in *TestSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice.default.primary.bbb[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  bbb: prismic.GroupField<Simplify<TestSliceSliceDefaultPrimaryBbbItem>>;
 }
 
 /**
@@ -684,61 +1478,6 @@ type TestSliceSliceVariation = TestSliceSliceDefault;
 export type TestSliceSlice = prismic.SharedSlice<
   "test_slice",
   TestSliceSliceVariation
->;
-
-/**
- * Primary content in *TestSlice1 → Default → Primary*
- */
-export interface TestSlice1SliceDefaultPrimary {
-  /**
-   * Title field in *TestSlice1 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: test_slice1.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * text field in *TestSlice1 → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: test_slice1.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Default variation for TestSlice1 Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TestSlice1SliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TestSlice1SliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *TestSlice1*
- */
-type TestSlice1SliceVariation = TestSlice1SliceDefault;
-
-/**
- * TestSlice1 Shared Slice
- *
- * - **API ID**: `test_slice1`
- * - **Description**: TestSlice1
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TestSlice1Slice = prismic.SharedSlice<
-  "test_slice1",
-  TestSlice1SliceVariation
 >;
 
 /**
@@ -947,10 +1686,26 @@ declare module "@prismicio/client" {
       Page1DocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SingleTypeTestDocument,
+      SingleTypeTestDocumentData,
+      TestDocument,
+      TestDocumentData,
+      TestDocumentDataSlicesSlice,
       TestpagetypeDocument,
       TestpagetypeDocumentData,
       TestpagetypeDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CardsSliceSlice,
+      CardsSliceSliceDefaultPrimaryCardsItem,
+      CardsSliceSliceDefaultPrimary,
+      CardsSliceSliceGrid32PrimaryCardsItem,
+      CardsSliceSliceGrid32Primary,
+      CardsSliceSliceLimitedHeightMediumPrimaryCardsItem,
+      CardsSliceSliceLimitedHeightMediumPrimary,
+      CardsSliceSliceVariation,
+      CardsSliceSliceDefault,
+      CardsSliceSliceGrid32,
+      CardsSliceSliceLimitedHeightMedium,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -971,13 +1726,10 @@ declare module "@prismicio/client" {
       QuoteSliceVariation,
       QuoteSliceDefault,
       TestSliceSlice,
+      TestSliceSliceDefaultPrimaryBbbItem,
       TestSliceSliceDefaultPrimary,
       TestSliceSliceVariation,
       TestSliceSliceDefault,
-      TestSlice1Slice,
-      TestSlice1SliceDefaultPrimary,
-      TestSlice1SliceVariation,
-      TestSlice1SliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,

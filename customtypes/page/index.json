@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "cards_slice": {
+              "type": "SharedSlice"
+            },
             "test_slice": {
               "type": "SharedSlice"
             },
