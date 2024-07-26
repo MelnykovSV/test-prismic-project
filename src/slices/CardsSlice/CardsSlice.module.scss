@@ -1,11 +1,7 @@
 .wrapper {
-  background-color: red;
-  height: 600px;
-  width: 100%;
 }
 
 .container {
-  background-color: green;
   max-width: 1526px;
   margin: 0 auto;
 
@@ -20,5 +16,72 @@
   @media screen and (min-width: 1526px) {
     padding: 64px 0;
     max-width: 1526px;
+  }
+}
+
+.title {
+  //styleName: Display md;
+  // font-family: Outfit;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60.48px;
+  letter-spacing: 0.02em;
+  margin-bottom: 32px;
+  text-transform: capitalize;
+
+  text-align: var(--alignTitle);
+
+  @media screen and (max-width: 920px) {
+    text-align: var(--alignTitleMobile);
+  }
+}
+
+.subtitle {
+  // font-family: Outfit;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40.32px;
+  margin-bottom: 64px;
+  text-transform: capitalize;
+
+  text-align: var(--alignSubtitle);
+
+  @media screen and (max-width: 920px) {
+    text-align: var(--alignSubtitleMobile);
+  }
+}
+
+.text {
+  margin-bottom: 64px;
+
+  text-align: var(--alignText);
+
+  @media screen and (max-width: 920px) {
+    text-align: var(--alignTextMobile);
+  }
+}
+
+.cardsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+  li {
+    width: calc((100% - 20px * (var(--columns) - 1)) / var(--columns));
+    padding: 32px;
+
+    border: 1px solid blue;
+    border-radius: 24px;
+
+    .cardTitle {
+      //styleName: display;
+      // font-family: Outfit;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 30.24px;
+      text-align: left;
+      margin-bottom: 16px;
+    }
   }
 }
