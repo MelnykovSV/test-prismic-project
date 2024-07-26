@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import cn from "classnames";
 import s from "./CardsSlice.module.scss";
 
 /**
@@ -19,11 +20,11 @@ const CardsSlice = ({ slice }: any): JSX.Element => {
       style={{
         "--columns": slice.primary.columns,
         "--alignTitle": slice.primary.align_title,
-        "--alignTitleMobile": slice.primary.align_title,
-        "--alignSubtitle": slice.primary.align_title,
-        "--alignSubtitleMobile": slice.primary.align_title,
-        "--alignText": slice.primary.align_title,
-        "--alignTextMobile": slice.primary.align_title,
+        "--alignTitleMobile": slice.primary.align_title_mobile,
+        "--alignSubtitle": slice.primary.align_subtitle,
+        "--alignSubtitleMobile": slice.primary.align_subtitle_mobile,
+        "--alignText": slice.primary.align_text,
+        "--alignTextMobile": slice.primary.align_text_mobile,
       }}>
       <div className={s.container}>
         {slice.primary.title && (
@@ -39,7 +40,10 @@ const CardsSlice = ({ slice }: any): JSX.Element => {
         )}
 
         {slice.primary.cards.length && (
-          <ul className={s.cardsList}>
+          <ul
+            className={cn(s.cardsList, {
+              [s.grid32]: slice.variation === "grid32",
+            })}>
             {/* <p>{JSON.stringify(slice.primary.cards[0])}</p> */}
             {slice.primary.cards.map((item: any, i: any) => (
               // Render the item

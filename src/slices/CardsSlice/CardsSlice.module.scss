@@ -75,13 +75,42 @@
     border-radius: 24px;
 
     .cardTitle {
-      //styleName: display;
-      // font-family: Outfit;
       font-size: 24px;
       font-weight: 600;
       line-height: 30.24px;
       text-align: left;
       margin-bottom: 16px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    li {
+      width: 100%;
+    }
+  }
+}
+
+.cardsList.grid32 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  li {
+    grid-column: span 2;
+    &:nth-of-type(5n),
+    &:nth-of-type(5n -1) {
+      grid-column: span 3;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    li {
+      grid-column: span 6;
+
+      &:nth-of-type(5n),
+      &:nth-of-type(5n -1) {
+        grid-column: span 6;
+      }
     }
   }
 }
