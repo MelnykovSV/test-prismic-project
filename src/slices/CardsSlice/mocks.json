@@ -56,7 +56,7 @@
 			},
 			"background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "none",
+				"value": "white",
 				"type": "Select"
 			},
 			"background_image": {
@@ -174,7 +174,7 @@
 			},
 			"background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "none",
+				"value": "white",
 				"type": "Select"
 			},
 			"background_image": {
@@ -292,7 +292,7 @@
 			},
 			"background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "none",
+				"value": "white",
 				"type": "Select"
 			},
 			"background_image": {

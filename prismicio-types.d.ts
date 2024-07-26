@@ -600,11 +600,11 @@ export interface CardsSliceSliceDefaultPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: none
+   * - **Default Value**: white
    * - **API ID Path**: cards_slice.default.primary.background_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  background_color: prismic.SelectField<"none" | "dark-blue", "filled">;
+  background_color: prismic.SelectField<"white" | "dark-blue", "filled">;
 
   /**
    * Background Image field in *CardsSlice → Default → Primary*
@@ -799,11 +799,11 @@ export interface CardsSliceSliceGrid32Primary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: none
+   * - **Default Value**: white
    * - **API ID Path**: cards_slice.grid32.primary.background_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  background_color: prismic.SelectField<"none" | "dark-blue", "filled">;
+  background_color: prismic.SelectField<"white" | "dark-blue", "filled">;
 
   /**
    * Background Image field in *CardsSlice → Grid 3/2 → Primary*
@@ -987,11 +987,11 @@ export interface CardsSliceSliceLimitedHeightMediumPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: none
+   * - **Default Value**: white
    * - **API ID Path**: cards_slice.limitedHeightMedium.primary.background_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  background_color: prismic.SelectField<"none" | "dark-blue", "filled">;
+  background_color: prismic.SelectField<"white" | "dark-blue", "filled">;
 
   /**
    * Background Image field in *CardsSlice → Limited Height Medium → Primary*

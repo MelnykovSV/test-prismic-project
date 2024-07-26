@@ -119,10 +119,10 @@
             "label": "Background Color",
             "placeholder": "",
             "options": [
-              "none",
+              "white",
               "dark-blue"
             ],
-            "default_value": "none"
+            "default_value": "white"
           }
         },
         "background_image": {
@@ -324,10 +324,10 @@
             "label": "Background Color",
             "placeholder": "",
             "options": [
-              "none",
+              "white",
               "dark-blue"
             ],
-            "default_value": "none"
+            "default_value": "white"
           }
         },
         "background_image": {
@@ -516,10 +516,10 @@
             "label": "Background Color",
             "placeholder": "",
             "options": [
-              "none",
+              "white",
               "dark-blue"
             ],
-            "default_value": "none"
+            "default_value": "white"
           }
         },
         "background_image": {

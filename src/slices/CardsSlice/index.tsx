@@ -11,6 +11,12 @@ export type CardsSliceProps = SliceComponentProps<Content.CardsSliceSlice>;
 /**
  * Component for "CardsSlice" Slices.
  */
+
+const colors: any = {
+  white: { background: "#fff", font: "#000" },
+  "dark-blue": { background: "#2F2D47", font: "#fff" },
+};
+
 const CardsSlice = ({ slice }: any): JSX.Element => {
   return (
     <section
@@ -25,6 +31,9 @@ const CardsSlice = ({ slice }: any): JSX.Element => {
         "--alignSubtitleMobile": slice.primary.align_subtitle_mobile,
         "--alignText": slice.primary.align_text,
         "--alignTextMobile": slice.primary.align_text_mobile,
+        "--backgroundColor":
+          colors[slice.primary.background_color]?.background || "#fff",
+        "--fontColor": colors[slice.primary.background_color]?.font || "#000",
       }}>
       <div className={s.container}>
         {slice.primary.title && (
@@ -43,6 +52,10 @@ const CardsSlice = ({ slice }: any): JSX.Element => {
           <ul
             className={cn(s.cardsList, {
               [s.grid32]: slice.variation === "grid32",
+              [s.limitedHeightMedium]:
+                slice.variation === "limitedHeightMedium",
+
+              [s.widerItemsLastRow]: slice.primary.cards.length % 5 === 0,
             })}>
             {/* <p>{JSON.stringify(slice.primary.cards[0])}</p> */}
             {slice.primary.cards.map((item: any, i: any) => (
