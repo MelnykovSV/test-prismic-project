@@ -26,14 +26,13 @@ const CardsSlice = ({ slice }: any): JSX.Element => {
 
       <ul>
         {/* <p>{JSON.stringify(slice.primary.cards[0])}</p> */}
-        {slice.primary.cards.map((item: any) => {
+        {slice.primary.cards.map((item: any, i: any) => (
           // Render the item
-          <li>
-            <p>{JSON.stringify(item)}</p>
+          <li key={i}>
             <h3>{item.title}</h3>
             <PrismicRichText field={item.text} />
-          </li>;
-        })}
+          </li>
+        ))}
       </ul>
     </section>
   );
